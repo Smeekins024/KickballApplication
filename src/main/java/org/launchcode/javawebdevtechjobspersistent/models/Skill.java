@@ -1,6 +1,8 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
 @Entity
 public class Skill extends AbstractEntity {
@@ -8,6 +10,8 @@ public class Skill extends AbstractEntity {
 //Skill Constuctor
     }
 
+    @ManyToMany(mappedBy = "skills")
+    private List<Job> jobs;
     private String Description;
 
     public String getDescription() {

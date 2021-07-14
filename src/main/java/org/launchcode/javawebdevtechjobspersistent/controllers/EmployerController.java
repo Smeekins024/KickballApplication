@@ -13,12 +13,8 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "employers")
-public class EmployerController {
+public class EmployerController{
 
-    public EmployerController () {
-        int i = 0;
-        System.out.println(i);
-    }
     @Autowired
     private EmployerRepository employerRepository;
 
@@ -54,7 +50,7 @@ public class EmployerController {
         if (optEmployer.isPresent()) {
             Employer employer = (Employer) optEmployer.get();
             model.addAttribute("employer", employer);
-            return "employers/view2";
+            return "employers/view";
         } else {
             return "redirect:../";
         }
