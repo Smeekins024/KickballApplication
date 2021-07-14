@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+    <table class="job-listing">
+        <tr th:each="employer : ${employers}">
+            <td>
+                <p>
+                    Job Id:
+                    <a th:href="@{'/view/' + ${employer.id}}" th:text="${employer.id}"></a>
+                </p>
+                <p th:text="${'Name: ' + employer.name}"></p>
+
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>
