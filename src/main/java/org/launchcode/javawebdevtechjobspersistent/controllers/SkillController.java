@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.Optional;
 
@@ -16,8 +15,8 @@ import java.util.Optional;
 public class SkillController {
 
     public SkillController() {
-
     }
+
     @Autowired
     private SkillRepository skillRepository;
 
@@ -42,7 +41,6 @@ public class SkillController {
         if (errors.hasErrors()) {
             return "skills/add";
         }
-
         skillRepository.save(newSkill);
         return "redirect:";
     }

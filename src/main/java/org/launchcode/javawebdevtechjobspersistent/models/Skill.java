@@ -7,7 +7,6 @@ import java.util.List;
 @Entity
 public class Skill extends AbstractEntity {
     public Skill (){
-//Skill Constuctor
     }
 
     @ManyToMany(mappedBy = "skills")

@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import static org.launchcode.javawebdevtechjobspersistent.controllers.ListController.columnChoices;
 
-/**
- * Created by LaunchCode
- */
 @Controller
 @RequestMapping("search")
 public class SearchController {
@@ -38,7 +35,6 @@ public class SearchController {
         model.addAttribute("columns", columnChoices);
         model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
         model.addAttribute("jobs", jobs);
-
         return "search";
     }
 }
