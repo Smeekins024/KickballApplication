@@ -1,4 +1,4 @@
-package org.launchcode.javawebdevtechjobspersistent.models;
+package org.launchcode.javawebdevkickball.models;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
