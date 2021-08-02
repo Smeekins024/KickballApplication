@@ -9,14 +9,14 @@
 <form method="post" style="max-width:600px;">
     <div class="form-group">
         <label th:for="name">Employer Name</label>
-        <input class="form-control" th:field="${employer.name}" />
-        <span th:errors="${employer.name}" class="error"></span>
+        <input class="form-control" th:field="${team.name}" />
+        <span th:errors="${team.name}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="location">Employer Location</label>
-        <input class="form-control" th:field="${employer.location}" />
-        <span th:errors="${employer.location}" class="error"></span>
+        <input class="form-control" th:field="${team.location}" />
+        <span th:errors="${team.location}" class="error"></span>
     </div>
 
     <input type="submit" value="Add Employer" />

@@ -1,22 +1,22 @@
-package org.launchcode.javawebdevtechjobspersistent.controllers;
+package org.launchcode.javawebdevkickball.controllers;
 
-import org.launchcode.javawebdevtechjobspersistent.models.Job;
-import org.launchcode.javawebdevtechjobspersistent.models.JobData;
-import org.launchcode.javawebdevtechjobspersistent.models.data.JobRepository;
+import org.launchcode.javawebdevkickball.models.TeamPosition;
+import org.launchcode.javawebdevkickball.models.TeamData;
+import org.launchcode.javawebdevkickball.models.data.TeamPositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-import static org.launchcode.javawebdevtechjobspersistent.controllers.ListController.columnChoices;
+import static org.launchcode.javawebdevkickball.controllers.ListController.columnChoices;
 
 @Controller
 @RequestMapping("search")
 public class SearchController {
 
     @Autowired
-    private JobRepository jobRepository;
+    private TeamPositionRepository teamPositionRepository;
 
     @RequestMapping("")
     public String search(Model model) {
@@ -26,11 +26,11 @@ public class SearchController {
 
     @PostMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
-        Iterable<Job> jobs;
+        Iterable<TeamPosition> jobs;
         if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")){
-            jobs = jobRepository.findAll();
+            jobs = teamPositionRepository.findAll();
         } else {
-            jobs = JobData.findByColumnAndValue(searchType, searchTerm, jobRepository.findAll());
+            jobs = TeamData.findByColumnAndValue(searchType, searchTerm, teamPositionRepository.findAll());
         }
         model.addAttribute("columns", columnChoices);
         model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);

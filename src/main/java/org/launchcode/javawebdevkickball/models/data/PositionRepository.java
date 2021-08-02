@@ -8,5 +8,5 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public interface SkillRepository extends CrudRepository<Position, Integer> {
+public interface PositionRepository extends CrudRepository<Position, Integer> {
 }

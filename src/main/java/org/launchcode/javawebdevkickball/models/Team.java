@@ -10,31 +10,31 @@ import java.util.List;
 
 
 @Entity
-public class Employer extends AbstractEntity {
-    public Employer (){
+public class Team extends AbstractEntity {
+    public Team(){
     //    This is the constructor
     }
 
     public String getLocation() {
-        return location;
+        return park;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setPark(String Park) {
+        this.park = this.park;
     }
     @Size (min = 1, max = 255)
     @NotNull
-    private String location;
+    private String park;
 
-    @OneToMany
-    @JoinColumn
-    private List<Job> jobs = new ArrayList<Job>();
-
-    public List<Job> getJobs() {
-        return jobs;
-    }
-
-    public void setJobs(List<Job> jobs) {
-        this.jobs = jobs;
-    }
+//    @OneToMany
+//    @JoinColumn
+//    private List<TeamPosition> teamPositions = new ArrayList<TeamPosition>();
+//
+//    public List<TeamPosition> getTeamPositions() {
+//        return teamPositions;
+//    }
+//
+//    public void setTeamPositions(List<TeamPosition> teamPositions) {
+//        this.teamPositions = teamPositions;
+//    }
 }

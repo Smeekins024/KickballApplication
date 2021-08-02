@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public interface EmployerRepository extends CrudRepository<Team,Integer>{
+public interface TeamRepository extends CrudRepository<Team,Integer>{
 }
 
 

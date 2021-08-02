@@ -1,40 +1,41 @@
-package org.launchcode.javawebdevtechjobspersistent.models;
+package org.launchcode.javawebdevkickball.models;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 
-public class Job extends AbstractEntity {
+public class TeamPosition extends AbstractEntity {
 
     @ManyToOne
-    private Employer employer;
+    private Team team;
 
-    @ManyToMany
-    private List<Skill> skills;
+    @OneToMany
+    private List<Position> positions;
 
-    public Job() {
+    public TeamPosition() {
     }
 
-    public Job(Employer anEmployer, List<Skill> someSkills) {
+    public TeamPosition(Team aTeam, List<Position> somePositions) {
         super();
-        this.employer = anEmployer;
-        this.skills = someSkills;
+        this.team = aTeam;
+        this.positions = somePositions;
     }
 
-    public Employer getEmployer() {
-        return employer;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
-    public List<Skill> getSkills() {
-        return skills;
+    public List<Position> getTeamPositions() {
+        return positions;
     }
 
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
+    public void setTeamPositions(List<Position> positions) {
+        this.positions = positions;
     }
 }
+

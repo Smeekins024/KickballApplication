@@ -11,14 +11,14 @@
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
 
-    <table class="job-listing">
-        <tr th:each="employer : ${employers}">
+    <table class="teamPosition-listing">
+        <tr th:each="team : ${employers}">
             <td>
                 <p>
                     Employer Id:
-                    <a th:href="@{'/employers/view/' + ${employer.id}}" th:text="${employer.id}"></a>
+                    <a th:href="@{'/employers/view/' + ${team.id}}" th:text="${team.id}"></a>
                 </p>
-                <p th:text="${'Name: ' + employer.name}"></p>
+                <p th:text="${'Name: ' + team.name}"></p>
             </td>
         </tr>
     </table>

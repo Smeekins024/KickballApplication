@@ -1,7 +1,7 @@
-package org.launchcode.javawebdevtechjobspersistent.controllers;
+package org.launchcode.javawebdevkickball.controllers;
 
-import org.launchcode.javawebdevtechjobspersistent.models.Skill;
-import org.launchcode.javawebdevtechjobspersistent.models.data.SkillRepository;
+import org.launchcode.javawebdevkickball.models.Position;
+import org.launchcode.javawebdevkickball.models.data.PositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,39 +18,39 @@ public class SkillController {
     }
 
     @Autowired
-    private SkillRepository skillRepository;
+    private PositionRepository positionRepository;
 
     @GetMapping("add")
     public String displayAddSkillForm(Model model) {
-        model.addAttribute(new Skill());
+        model.addAttribute(new Position());
         return "skills/add";
     }
 
     @RequestMapping("")
     public String index(Model model) {
-        Iterable<Skill> skills;
-        skills = skillRepository.findAll();
+        Iterable<Position> skills;
+        skills = positionRepository.findAll();
         model.addAttribute("title", "All Skills");
         model.addAttribute("skills", skills);
         return "skills/index";
     }
 
     @PostMapping("add")
-    public String processAddSkillForm(@ModelAttribute @Valid Skill newSkill,
+    public String processAddSkillForm(@ModelAttribute @Valid Position newPosition,
                                     Errors errors, Model model) {
         if (errors.hasErrors()) {
             return "skills/add";
         }
-        skillRepository.save(newSkill);
+        positionRepository.save(newPosition);
         return "redirect:";
     }
 
     @RequestMapping(value = "view/{skillId}")
     public String displayViewEmployer(Model model, @PathVariable int skillId) {
-        Optional optSkill = skillRepository.findById(skillId);
+        Optional optSkill = positionRepository.findById(skillId);
         if (optSkill.isPresent()) {
-            Skill skill = (Skill) optSkill.get();
-            model.addAttribute("skill", skill);
+            Position position = (Position) optSkill.get();
+            model.addAttribute("position", position);
             return "skills/view";
         } else {
             return "redirect:../";

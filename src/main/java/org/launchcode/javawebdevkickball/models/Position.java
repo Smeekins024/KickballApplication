@@ -1,16 +1,16 @@
-package org.launchcode.javawebdevtechjobspersistent.models;
+package org.launchcode.javawebdevkickball.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Entity
-public class Skill extends AbstractEntity {
-    public Skill (){
+public class Position extends AbstractEntity {
+    public Position(){
     }
 
-    @ManyToMany(mappedBy = "skills")
-    private List<Job> jobs;
+//    @ManyToMany(mappedBy = "TeamPosition")
+//    private List<TeamPosition> teamPositions;
     private String Description;
 
     public String getDescription() {

@@ -1,6 +1,4 @@
-package org.launchcode.javawebdevtechjobspersistent.models;
-
-import jdk.jfr.Name;
+package org.launchcode.javawebdevkickball.models;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
